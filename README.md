@@ -2,6 +2,8 @@
 
 ¡Bienvenido a la Calculadora de Interés Compuesto! Esta interfaz web amigable, alojada en GitHub, está diseñada para ofrecerte una experiencia envolvente al explorar el fascinante mundo del interés compuesto.
 
+![example](./resources/screenshot.png)
+
 ## Características Destacadas
 
 - **Intuitiva y Amigable:** Un formulario sencillo te guiará para ingresar tus datos financieros sin complicaciones.
