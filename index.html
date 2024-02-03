@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Intererés Compuesto</title>
+        <link rel="stylesheet" href="./styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    <div class="widget">
+    	<div class="widget-title">Predicción</div>
+        <div class="widget-total">Total: <span class="total-amount" id="prediction_total"></span></div>
+    	<div class="widget-input-container">
+            <p class="input-text">Inversión: <input inputmode="numeric" pattern="[0-9]*" type="number" min="0" value="50000" class="input" style="width: 110px;" oninput="update('invest')" id="invest"> $</p>
+            <p class="input-text">Tasa: <input inputmode="numeric" pattern="[0-9]*" type="number" min="0" value="15" class="input" oninput="update('rate')" id="rate"> %</p>
+            <!-- <p class="input-text">Aportaciones: <input inputmode="numeric" pattern="[0-9]*" type="number" min="0" value="" class="input" style="width: 70px;" onfocusout="update('contributions')" id="contributions"> $</p> -->
+            <p class="input-text">Años: <input inputmode="numeric" pattern="[0-9]*" type="number" min="1" value="50" class="input" oninput="update('years')" id="years"></p>
+    	</div>
+    	<canvas class="prediction-line"></canvas>
+    </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./predict.js"></script>
+</html>

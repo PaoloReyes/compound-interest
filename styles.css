@@ -1,0 +1,113 @@
+body {
+    background-color: #110d2c;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+.success {
+    background-color: #489641;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.error {
+    background-color: #c23939;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 999;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.total-amount {
+    font-weight: 700;
+    color: #00ffaa;
+}
+
+.widget {
+    font-family: "Rubik", "sans-serif";
+    background-color: #15172b;
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 25px 32px;
+    align-items: center;
+    margin: 40px auto;
+    gap: 24px;
+    width: 85%;
+}
+
+.widget-title {
+    color: #eee;
+    font-family: "Rubik", "sans-serif";
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align: center;
+}
+
+.widget-total {
+    color: #eee;
+    font-family: "Rubik", "sans-serif";
+    font-size: 28px;
+    text-transform: uppercase;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 10px;
+}
+
+.widget-input-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.input-text {
+    margin: 12px 0 0 0;
+    text-transform: uppercase;
+    font-family: "Rubik", "sans-serif";
+    font-size: 20px;  
+    font-weight: 700;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.input {
+    width: 50px;
+    height: 22px;
+    border-radius: 10px;  
+    background: #3C3D50;
+    outline: none;
+    border-color: #ffffff00;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    margin-bottom: 5px;
+    font-family: "Rubik", "sans-serif";
+    font-size: 18px;
+    text-align: center;
+    color: #ffffff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+}
