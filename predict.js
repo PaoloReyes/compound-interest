@@ -74,10 +74,8 @@ function predict(...inputs) {
     var prediction_total = document.getElementById('prediction_total');
     prediction_total.innerHTML = "$"+total_array[total_array.length-1].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     
-    console.log(total_array.length)
     total_array = optimize_dataset(total_array, total_array.length, optimized_length)
     dates_array = optimize_dataset(dates_array, dates_array.length, optimized_length)
-    console.log(total_array.length)
 
     prediction_line_data.datasets[0].data = total_array;
     prediction_line_data.labels = dates_array;
