@@ -15,11 +15,12 @@
     	<div class="widget-title">Predicción</div>
         <div class="widget-total">Total: <span class="total-amount" id="prediction_total"></span></div>
     	<div class="widget-input-container">
-            <p class="input-text">Inversión: <input inputmode="numeric" pattern="[0-9]*" type="number" min="0" value="50000" class="input" style="width: 110px;" oninput="update('invest')" id="invest"> $</p>
+            <p class="input-text">Inversión: <input inputmode="numeric" pattern="[0-9]*" type="number" min="0" value="50000" class="input" style="width: 115px;" oninput="update('invest')" id="invest"> $</p>
             <p class="input-text">Tasa: <input inputmode="numeric" pattern="[0-9]*" type="number" min="0" value="15" class="input" oninput="update('rate')" id="rate"> %</p>
-            <!-- <p class="input-text">Aportaciones: <input inputmode="numeric" pattern="[0-9]*" type="number" min="0" value="" class="input" style="width: 70px;" onfocusout="update('contributions')" id="contributions"> $</p> -->
-            <p class="input-text">Años: <input inputmode="numeric" pattern="[0-9]*" type="number" min="1" value="50" class="input" oninput="update('years')" id="years"></p>
-    	</div>
+            <p class="input-text">Aportaciones: <input inputmode="numeric" pattern="[0-9]*" type="number" min="0" value="5000" class="input" style="width: 80px;" oninput="update('contributions')" id="contributions"> $</p>
+            <p class="input-text">Años: <input inputmode="numeric" pattern="[0-9]*" type="number" min="1" value="30" class="input" oninput="update('years')" id="years"></p>
+            <p class="input-text">Inflación: <input inputmode="numeric" pattern="[0-9]*" type="number" min="1" value="4" class="input" oninput="update('inflation')" id="inflation"> %</p>
+        </div>
     	<canvas class="prediction-line"></canvas>
     </div>
     </body>

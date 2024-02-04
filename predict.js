@@ -1,6 +1,8 @@
 var invest_input = document.getElementById('invest');
 var rate_input = document.getElementById('rate');
+var contributions_input = document.getElementById('contributions');
 var years_input = document.getElementById('years');
+var inflations_input = document.getElementById('inflation');
 
 const optimized_length = 1000;
 
@@ -46,13 +48,13 @@ prediction_line_plot = new Chart(prediction_line, {
     },
 });
 
-predict([parseFloat(invest_input.value), parseFloat(rate_input.value), parseFloat(years.value)]);
+predict([parseFloat(invest_input.value), parseFloat(rate_input.value), parseFloat(contributions_input.value), parseFloat(years.value), parseFloat(inflations_input.value)]);
 
 function predict(...inputs) {
-    const daily_rate = inputs[0][1]/36000;
+    const daily_rate = (inputs[0][1]-inputs[0][4])/36000;
 
     var start_date = new Date();
-    var end_date = new Date(start_date.getFullYear() + inputs[0][2], start_date.getMonth(), start_date.getDate() + 1);
+    var end_date = new Date(start_date.getFullYear() + inputs[0][3], start_date.getMonth(), start_date.getDate() + 1);
     var current_date = new Date(start_date);
 
     var dates_array = [];
@@ -60,10 +62,15 @@ function predict(...inputs) {
     var total = inputs[0][0];
 
     dates_array.push(new Date(current_date).toISOString().split('T')[0].replace(/^(\d{4})-(\d{2})-(\d{2})$/, '$3/$2/$1'));
+    var previous_month = current_date.getMonth();
     while (current_date.getTime() <= end_date.getTime()) {
         dates_array.push('');
         total_array.push(total.toFixed(2));
         current_date.setDate(current_date.getDate() + 1);
+        if (current_date.getMonth() != previous_month) {
+            previous_month = current_date.getMonth();
+            total+=inputs[0][2];
+        }
         total+=total*daily_rate;
     }
     dates_array.pop()
@@ -89,17 +96,21 @@ function update(field) {
 
     const success_messages = {'rate': 'La Tasa se ha actualizado correctamente',
                 'years': 'Los Años se han actualizado correctamente',
-                'invest': 'La Inversión se ha actualizado correctamente'
+                'invest': 'La Inversión se ha actualizado correctamente',
+                'contributions': 'Las Contribuciones se han actualizado correctamente',
+                'inflation': 'La Inflación se ha actualizado correctamente',
                 };
 
     const error_messages = {'rate': 'Error: La Tasa no puede ser mayor a 100%',
                             'years': 'Error: Los Años no pueden ser mayores a 100',
-                            'invest': 'A quien engañas ¡Nadie tiene más de 1,000,000,000! 😂😂😂'
+                            'invest': 'A quien engañas ¡Nadie tiene más de 1,000,000,000! 😂😂😂',
+                            'contributions': 'Si puedes invertir más de 1,000,000,000 al mes probablemente no necesitas esta calculadora!!!',
+                            'inflation': 'Si la inflación es mayor al 100% deberías hacer un golpe de estado',
                             }
 
     alert_element.textContent = success_messages[field];
-    var inputs = [invest_input, rate_input, years_input];
-    var maxs = [999999999, 100, 100];
+    var inputs = [invest_input, rate_input, contributions_input, years_input, inflations_input];
+    var maxs = [999999999, 100, 999999, 100, 100];
 
     var timeout = 1000;
 
